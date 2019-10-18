@@ -28,4 +28,4 @@ Ah = PokerCard.newCard("Ah") #268447017
 hand_string = ["2h", "3h", "4h", "5h", "Ah"]
 @assert length(PokerCard.newCard.(hand_string)) == 5
 hand_ints = PokerCard.newCard.(hand_string)
-println(Evaluator.class_to_string(Evaluator.get_rank_class(Evaluator.evaluate(hand_ints))))
+@assert Evaluator.class_to_string(Evaluator.get_rank_class(Evaluator.evaluate(hand_ints))) == "Straight Flush"
