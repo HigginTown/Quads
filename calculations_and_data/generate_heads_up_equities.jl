@@ -34,12 +34,12 @@ function estimate_heads_up_equity(four_cards)
     # add a point for the winner
     for i in 1:num_trials
         samp = collect(sample[i])
-        hand_1 = hcat(four_cards[1:2], samp)
-        hand_2 = hcat(four_cards[3:4], samp)
-        if Evaluator.evaluate(hand_1) < Evaluator.evaluate(hand_2)
+        hand_1 = hcat(four_cards[1:2], samp) # create flat array w length(7)
+        hand_2 = hcat(four_cards[3:4], samp) # create flat array w length(7)
+        if Evaluator.evaluate(hand_1) < Evaluator.evaluate(hand_2) # lower=better
             hand_1_wins += 1
         elseif Evaluator.evaluate(hand_1) == Evaluator.evaluate(hand_2)
-            hand_1_wins += .5
+            hand_1_wins += .5 # careful to increment by 0.5 for ties 
         end
     end
     return hand_1_wins/num_trials
