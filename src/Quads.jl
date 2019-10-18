@@ -1,5 +1,9 @@
 module Quads
+using Pkg
+Pkg.add("Random")
+Pkg.add("Combinatorics")
 using Random
+using Combinatorics
 
 include("PokerCard.jl")
 include("PokerDeck.jl")
