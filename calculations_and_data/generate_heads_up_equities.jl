@@ -39,7 +39,7 @@ function estimate_heads_up_equity(four_cards)
         if Evaluator.evaluate(hand_1) < Evaluator.evaluate(hand_2) # lower=better
             hand_1_wins += 1
         elseif Evaluator.evaluate(hand_1) == Evaluator.evaluate(hand_2)
-            hand_1_wins += .5 # careful to increment by 0.5 for ties 
+            hand_1_wins += .5 # careful to increment by 0.5 for ties
         end
     end
     return hand_1_wins/num_trials
