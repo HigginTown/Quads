@@ -1,7 +1,7 @@
-#  ♠ ♢ Quads ♡ ♣
+#  ♠ ⋄ Quads ♡ ♣
 ### Fast Poker-hand evaluator
 
-A♠ A♢ A♡ A♣
+A♠ A⋄ A♡ A♣
 ---------------
 
 This library also contains useful functions for working with cards.
