@@ -14,21 +14,19 @@ function estimate_heads_up_equity(four_cards)
     deck = PokerDeck.make_deck() # this deck is random
     remaining_cards = filter!(e -> e ∉ four_cards, deck)
 
-    # short circuit for matches
-    # @assert length(hand_1)==7
-    # @assert length(hand_2)==7
-
     four_cards = collect(four_cards)
 
     hand_1 = four_cards[1:2]
     hand_2 = four_cards[3:4]
 
+    # short circuit return 0.5 for pair v same pair
+    
     if (PokerCard.get_rank_int(hand_1[1]) == PokerCard.get_rank_int(hand_2[1]) & PokerCard.get_rank_int(hand_1[2]) == PokerCard.get_rank_int(hand_2[2])) |
        (PokerCard.get_rank_int(hand_1[1]) == PokerCard.get_rank_int(hand_2[2]) & PokerCard.get_rank_int(hand_1[2]) == PokerCard.get_rank_int(hand_2[1]))
         return 0.5
     end
-    all_possbile_boards = subsets(remaining_cards, Val{5}())
-    sample = shuffle(collect(IterTools.takestrict(all_possbile_boards, num_trials)))
+    all_possbile_boards = shuffle(collect(subsets(remaining_cards, Val{5}())))
+    sample = all_possible_boards[1:num_trials]
     # keep a counter for hand_1_wins to calculate win rate
     hand_1_wins = 0
     # for each sample board join the hand and the sample board
