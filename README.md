@@ -1,5 +1,5 @@
-#  ♠ 🔷 Quads 💙 ♣
-### Fast Poker-hand evaluator
+#   🔷 Quads 🔷
+### Fast hand evaluator for Poker and other card games
 
 ---------------
 
