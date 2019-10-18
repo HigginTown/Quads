@@ -20,7 +20,7 @@ function estimate_heads_up_equity(four_cards)
     hand_2 = four_cards[3:4]
 
     # short circuit return 0.5 for pair v same pair
-    
+
     if (PokerCard.get_rank_int(hand_1[1]) == PokerCard.get_rank_int(hand_2[1]) & PokerCard.get_rank_int(hand_1[2]) == PokerCard.get_rank_int(hand_2[2])) |
        (PokerCard.get_rank_int(hand_1[1]) == PokerCard.get_rank_int(hand_2[2]) & PokerCard.get_rank_int(hand_1[2]) == PokerCard.get_rank_int(hand_2[1]))
         return 0.5
@@ -34,8 +34,8 @@ function estimate_heads_up_equity(four_cards)
     # add a point for the winner
     for i in 1:num_trials
         samp = collect(sample[i])
-        hand_1 = sort!(vcat(four_cards[1:2], samp))
-        hand_2 = sort!(vcat(four_cards[3:4], samp))
+        hand_1 = hcat(four_cards[1:2], samp)
+        hand_2 = hcat(four_cards[3:4], samp)
         if Evaluator.evaluate(hand_1) < Evaluator.evaluate(hand_2)
             hand_1_wins += 1
         elseif Evaluator.evaluate(hand_1) == Evaluator.evaluate(hand_2)
