@@ -29,3 +29,9 @@ hand_string = ["2h", "3h", "4h", "5h", "Ah"]
 @assert length(PokerCard.newCard.(hand_string)) == 5
 hand_ints = PokerCard.newCard.(hand_string)
 @assert Evaluator.class_to_string(Evaluator.get_rank_class(Evaluator.evaluate(hand_ints))) == "Straight Flush"
+
+
+# seven cards from the deck and eval
+hand_ints = PokerDeck.draw!(7, PokerDeck.make_deck())
+@assert typeof(PokerCard.int_to_pretty_str.(hand_ints)) == Array{String,1}
+@assert typeof(Evaluator.get_rank_class(Evaluator.evaluate(hand_ints))) == Int
