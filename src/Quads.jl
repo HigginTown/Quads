@@ -1,5 +1,8 @@
 module Quads
 
-greet() = print("Hello World!")
+include("PokerCard.jl")
+include("PokerDeck.jl")
+include("Lookup.jl")
+include("Evaluator.jl")
 
 end # module
