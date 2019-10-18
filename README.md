@@ -1,7 +1,6 @@
-#  ♠ ⋄ Quads ♡ ♣
+#  ♠ 🔷 Quads 💙 ♣
 ### Fast Poker-hand evaluator
 
-A♠ A⋄ A♡ A♣
 ---------------
 
 This library also contains useful functions for working with cards.
@@ -31,5 +30,11 @@ Ah = PokerCard.newCard("Ah") #268447017
 @assert typeof(Ah) == Int
 # there is a bitstring rep for each card that makes sense, check out PokerCard
 @assert bitstring(Ah % UInt32) == "00010000000000000010110100101001"
+
+# working with a hand, eg evaluating a Straight Flush
+hand_string = ["2h", "3h", "4h", "5h", "Ah"]
+@assert length(PokerCard.newCard.(hand_string)) == 5
+hand_ints = PokerCard.newCard.(hand_string)
+@assert Evaluator.class_to_string(Evaluator.get_rank_class(Evaluator.evaluate(hand_ints))) == "Straight Flush"
 
 ```

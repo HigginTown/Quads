@@ -10,6 +10,7 @@ include("PokerDeck.jl")
 include("Lookup.jl")
 include("Evaluator.jl")
 
+Pkg.resolve()
 
 
 PokerCard.newCard("Ah")

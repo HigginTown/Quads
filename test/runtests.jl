@@ -24,12 +24,12 @@ import Quads.Evaluator
     @test typeof(Evaluator.get_rank_class(Evaluator.evaluate(hand_ints))) == Int
 
     # some timing tests for 1000 random draws and evals
-    t = @elapsed for i in 1:10000
+    t = @elapsed for i in 1:1000
         hand_ints = PokerDeck.draw!(7, PokerDeck.make_deck())
         Evaluator.get_rank_class(Evaluator.evaluate(hand_ints))
     end
 
-    # 10k draws and evals in under 1s
+    # 1k draws and evals in under 1s
     @assert t < 1
 
 
