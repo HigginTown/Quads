@@ -6,6 +6,8 @@
 This library also contains useful functions for working with cards.
 Every card is represented by a 32-bit integer. Most bits have a specific meaning.
 
+This is my Julia port of `deuces` from python 2: https://github.com/worldveil/deuces
+
 **Example usage**
 
 Please see the examples in [`example.jl`](example.jl)
